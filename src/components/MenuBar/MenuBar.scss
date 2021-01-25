@@ -1,22 +1,28 @@
 @import '../../style/colors.scss';
 
 .menu-bar{
-  height: 4px;
+  height: 20px;
   background: $bar;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  margin: 10px 10%;
 }
 
 
 .menu-options{
-  width: 46%;
+  width: 35%;
   display: flex;
   justify-content: space-around;
 
 }
 
 .menu-login{
+  display: flex;
+  justify-content: space-around;
 
+}
+
+a{
+  text-decoration: none;
 }

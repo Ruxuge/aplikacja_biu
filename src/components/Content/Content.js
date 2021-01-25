@@ -1,10 +1,13 @@
 import React from 'react'
 import './Content.scss'
-import {Link} from "react-router-dom"
+import News from './Content'
+import { BrowserRouter as Router} from "react-router-dom";
 
-export default function content(){
+export default function Content(){
     return(
-        <section></section>
+        <section>
+            <Router path='/news' component={News}/>
+        </section>
 
     )
 }
