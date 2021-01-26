@@ -5,18 +5,18 @@ import MenuBar from './components/MenuBar/MenuBar';
 import Content from './components/Content/Content';
 import Footer from './components/Footer/Footer';
 
-import { BrowserRouter as Router } from "react-router-dom"
+import { BrowserRouter as Router, Switch} from "react-router-dom"
 
-function App() {
+export default function App() {
   return (
       <div className="App">
         <Router>
           <MenuBar/>
-          <Content/>
+          <Switch>
+            <Content/>
+          </Switch>
           <Footer/>
         </Router>
       </div>
     )
 }
-
-export default App;
