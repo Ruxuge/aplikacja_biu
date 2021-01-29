@@ -1,0 +1,19 @@
+@import "./../../style/colors";
+
+.line{
+  color: $bar;
+}
+
+.footer-links{
+  margin: auto;
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-form{
+  margin:auto;
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+}
