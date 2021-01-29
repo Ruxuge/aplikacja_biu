@@ -1,23 +1,24 @@
 import React from "react";
-import './MenuBar.scss';
+import "./MenuBar.scss";
 import { Link } from "react-router-dom";
 
 export default function MenuBar() {
     return (
         <nav className='menu-bar'>
             <aside className='menu-options'>
-                <Link to='/'>Y</Link>
-                <Link to='/news'>Hacker News</Link>
-                <Link>news |</Link>
-                <Link>past |</Link>
-                <Link>comments |</Link>
-                <Link>ask |</Link>
-                <Link>show |</Link>
-                <Link>jobs |</Link>
-                <Link>submit</Link>
+                <Link to='/'><img src="../../files/Y_Logo.png"  alt="Y"/></Link>
+                <Link to='/hacker'>Hacker News </Link>
+                <Link to='/welcome'>welcome |</Link>
+                <Link to='/new'>new |</Link>
+                <Link to='/past'>past |</Link>
+                <Link to='/comments'>comments |</Link>
+                <Link to='/ask'>ask |</Link>
+                <Link to='/show'>show |</Link>
+                <Link to='/jobs'>jobs |</Link>
+                <Link to='/submit'>submit</Link>
             </aside>
             <aside className='menu-login'>
-                <Link>login</Link>
+                <Link to='/login'>login</Link>
             </aside>
         </nav>
     );

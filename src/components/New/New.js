@@ -1,10 +1,10 @@
 import React from 'react'
-import '../News.scss'
-import useGet from '../../hooks/useGet';
-import Topicality from './Topicality';
+import "./New.scss"
+import useGet from "../../hooks/useGet";
+import Topicality from "../Topicality/Topicality";
 
-export default function News() {
-    const URI = 'https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty ';
+export default function New() {
+    const URI = 'https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty';
     const news = useGet(URI, []);
 
     return (
