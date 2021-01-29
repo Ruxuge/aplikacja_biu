@@ -18,7 +18,6 @@ export default function Login({setToken}) {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
 
-
     const handleSubmit = async e => {
         e.preventDefault();
         const token = await loginUser({
@@ -34,9 +33,9 @@ export default function Login({setToken}) {
             <form onSubmit={handleSubmit}>
                 <label htmlFor="login_Label">Login</label><br/><br/>
                 <label htmlFor="fusername">Username: </label>
-                <input type="text" id="fusername" name="fusername" onChange={e => setUserName(e.target.value)} /><br/>
+                <input type="text" onChange={e => setUserName(e.target.value)} /><br/>
                 <label htmlFor="fpassword">Password: </label>
-                <input type="password" id="fpassword" name="fpassword" onChange={e => setPassword(e.target.value)} /><br/><br/>
+                <input type="password" onChange={e => setPassword(e.target.value)} /><br/><br/>
                 <input type="submit" value="Login"/><br/><br/>
                 <a href="">Forgot your password?</a><br/><br/>
             </form>
@@ -44,9 +43,9 @@ export default function Login({setToken}) {
             <form>
                 <label htmlFor="create_account_label">Create account</label><br/><br/>
                 <label htmlFor="fusername">Username: </label>
-                <input type="text" id="fusername" name="fusername"/><br/>
+                <input type="text" /><br/>
                 <label htmlFor="fpassword">Password: </label>
-                <input type="password" id="fpassword" name="fpassword"/><br/><br/>
+                <input type="password" /><br/><br/>
                 <input type="submit" value="Create account"/>
             </form>
         </section>
