@@ -2,7 +2,7 @@ import React from 'react'
 import "./Content.scss"
 
 import New from "../New/New";
-import Login from "./../Login/Login";
+import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
 import Submit from "../Submit/Submit"
 import Welcome from "../Welcome/Welcome";
@@ -18,7 +18,6 @@ import { Route } from "react-router-dom";
 export default function Content() {
     return (
         <section className='content-section'>
-            <Route path='/home' component={Welcome}/>
             <Route path='/welcome' component={Welcome}/>
             <Route path='/new' component={New}/>
             <Route path='/past' component={Past}/>

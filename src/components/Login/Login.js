@@ -1,17 +1,42 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./Login.scss"
 import { Route } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export default function Login() {
+async function loginUser(credentials) {
+    return fetch('http://localhost:8080/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(credentials)
+    })
+        .then(data => data.json())
+}
+
+export default function Login({setToken}) {
+    const [username, setUserName] = useState();
+    const [password, setPassword] = useState();
+
+
+    const handleSubmit = async e => {
+        e.preventDefault();
+        const token = await loginUser({
+            username,
+            password
+        });
+        setToken(token);
+    }
+
     return (
         <section className='login'>
             <Route path='/login'/>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="login_Label">Login</label><br/><br/>
                 <label htmlFor="fusername">Username: </label>
-                <input type="text" id="fusername" name="fusername"/><br/>
+                <input type="text" id="fusername" name="fusername" onChange={e => setUserName(e.target.value)} /><br/>
                 <label htmlFor="fpassword">Password: </label>
-                <input type="password" id="fpassword" name="fpassword"/><br/><br/>
+                <input type="password" id="fpassword" name="fpassword" onChange={e => setPassword(e.target.value)} /><br/><br/>
                 <input type="submit" value="Login"/><br/><br/>
                 <a href="">Forgot your password?</a><br/><br/>
             </form>
@@ -27,3 +52,7 @@ export default function Login() {
         </section>
     );
 }
+
+Login.propTypes = {
+    setToken: PropTypes.func.isRequired
+};

@@ -7,7 +7,7 @@ export default function MenuBar() {
         <nav className='menu-bar'>
             <aside className='menu-options'>
                 <Link to='/'><img src="../../files/Y_Logo.png"  alt="Y"/></Link>
-                <Link to='/hacker'>Hacker News </Link>
+                <Link to='/new'>Hacker News </Link>
                 <Link to='/welcome'>welcome |</Link>
                 <Link to='/new'>new |</Link>
                 <Link to='/past'>past |</Link>
