@@ -8,10 +8,23 @@ export default function Topicality({ topicalityId }) {
     const topicality = useGet(URI, {});
     const time = useAddedAgo(topicality.time);
 
+    const [hide, setHide] = React.useState(false);
+
     return (
-        <li className="list">
-            <img src="../../files/grayarrow.gif" alt="arrow"/><a href={topicality.url}>{topicality.title}</a>
-            <p>{topicality.score} {(topicality.score === 1) ? 'point' : 'points'} by {topicality.by} {time} | <a href="">hide</a> | <a href="">past</a> | <a href="">discuss</a></p>
-        </li>
+        <>
+            {!hide && <li className="list">
+                <main className='post'>
+                    <div className='arrow'/>
+                    <div className="content">
+                        <a href={topicality.url}>{topicality.title}</a>
+                        <p>{topicality.score} {(topicality.score === 1) ? 'point' : 'points'} by {topicality.by} {time} |&nbsp;
+                            <span onClick={() => setHide(true)}>hide</span> |&nbsp;
+                            <a href="">past</a> |&nbsp;
+                            <a href="">discuss</a>
+                        </p>
+                    </div>
+                </main>
+            </li>}
+        </>
     );
 }

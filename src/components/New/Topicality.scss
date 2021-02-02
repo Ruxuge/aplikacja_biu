@@ -1,3 +1,16 @@
 .list{
   list-style-type: decimal;
 }
+
+.post {
+  display: flex;
+}
+
+.arrow {
+  width: 1vw;
+  height: 2vh;
+  background-image: url("../../files/grayarrow.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

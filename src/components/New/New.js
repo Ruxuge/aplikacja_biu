@@ -7,6 +7,7 @@ export default function New() {
     const URI = 'https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty';
     const news = useGet(URI, []);
 
+
     return (
         <article>
             <ul>

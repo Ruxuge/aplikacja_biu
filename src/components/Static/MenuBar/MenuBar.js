@@ -6,7 +6,7 @@ export default function MenuBar() {
     return (
         <nav className='menu-bar'>
             <aside className='menu-options'>
-                <Link to='/'><img src="../../files/Y_Logo.png"  alt="Y"/></Link>
+                <Link to='/'><img src="../../../files/Y_Logo.png" alt="Y"/></Link>
                 <Link to='/new'>Hacker News </Link>
                 <Link to='/welcome'>welcome |</Link>
                 <Link to='/new'>new |</Link>
@@ -18,7 +18,8 @@ export default function MenuBar() {
                 <Link to='/submit'>submit</Link>
             </aside>
             <aside className='menu-login'>
-                <Link to='/login'>login</Link>
+                <Link to='/login'>login local | </Link>
+                <a href="https://news.ycombinator.com/login"> login</a>
             </aside>
         </nav>
     );

@@ -1,4 +1,4 @@
-@import '../../style/colors.scss';
+@import '../../../style/colors';
 
 .menu-bar{
   height: 20px;
@@ -17,6 +17,7 @@
 }
 
 .menu-login{
+  width: 7%;
   display: flex;
   justify-content: space-around;
 
