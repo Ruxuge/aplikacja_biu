@@ -1,17 +1,17 @@
 import React from 'react'
 import "./Comments.scss"
 import useGet from "../../hooks/useGet";
-import Topicality from "../Topicality/Topicality";
+import Comment from "./Comment";
 
 export default function Comments() {
-    const URI = 'https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty';
-    const news = useGet(URI, []);
+    const URI = 'https://hacker-news.firebaseio.com/v0/comments.json?print=pretty';
+    const comments = useGet(URI, []);
 
     return (
         <article>
             <ul>
-                {news.map(topicalityId => (
-                    <Topicality topicalityId={topicalityId} />
+                {comments.map(commentId => (
+                    <Comment commentId={commentId} />
                 ))}
             </ul>
         </article>

@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Past.scss"
 import useGet from "../../hooks/useGet";
-import Topicality from "../Topicality/Topicality";
+import Topicality from "../New/Topicality";
 
 export default function Past() {
     const URI = 'https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty';

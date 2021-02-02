@@ -1,7 +1,7 @@
 import React from 'react'
 import "./New.scss"
 import useGet from "../../hooks/useGet";
-import Topicality from "../Topicality/Topicality";
+import Topicality from "./Topicality";
 
 export default function New() {
     const URI = 'https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty';
