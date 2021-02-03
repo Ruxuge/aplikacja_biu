@@ -6,11 +6,19 @@ import useAddedAgo from "../../hooks/useAddedAgo";
 export default function Job({ jobId }) {
     const URI = `https://hacker-news.firebaseio.com/v0/item/${jobId}.json?print=pretty`;
     const job = useGet(URI, {});
-    //const time = useAddedAgo(job.time)
+
+    const timeNotNull = () => job !== null ? job.time : 0;
+
+    const time = useAddedAgo(timeNotNull())
 
     return (
         <li>
-            <p>{job.title}</p>
+            {job !== null &&
+            <>
+                <a href={job.url}>{job.title}</a>
+                <p>{time}</p>
+            </>
+            }
         </li>
     );
 }

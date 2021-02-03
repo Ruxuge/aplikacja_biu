@@ -1,11 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import "./Comments.scss"
-import useGet from "../../hooks/useGet";
 import Comment from "./Comment";
+import axios from "axios";
 
 export default function Comments() {
-    const URI = 'https://hacker-news.firebaseio.com/v0/comments.json?print=pretty';
-    const comments = useGet(URI, []);
+
+
+    let item = 26000000;
+    const stateType = [];
+
+    const [comments, setComments] = useState([]);
+
+    function commentList() {
+        for (let i = item; i >= item - 10; i--) {
+            axios.get(`https://hacker-news.firebaseio.com/v0/item/${i}.json?print=pretty`)
+        .then(response => {
+                if (response.data.type !== null && response.data.type === 'comment') {
+                    setComments(response.data)
+                    return response.data
+                }
+            })
+                .catch(error => console.error("Error:${error}"))
+        }
+    }
+
+    setComments(commentList())
 
     return (
         <article>
