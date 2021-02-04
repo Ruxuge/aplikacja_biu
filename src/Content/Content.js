@@ -14,6 +14,7 @@ import Jobs from "../components/Jobs/Jobs"
 
 
 import { Route } from "react-router-dom";
+import Discuss from "../components/Comments/Discuss";
 
 export default function Content() {
     return (
@@ -28,6 +29,7 @@ export default function Content() {
             <Route path='/submit' component={Submit}/>
             <Route path='/login' component={Login}/>
             <Route path='/profile' component={Profile}/>
+            <Route path='/discuss' component={Discuss}/>
         </section>
     );
 }

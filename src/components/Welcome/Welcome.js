@@ -7,7 +7,7 @@ export default function Welcome() {
     return (
         <section className='welcome'>
             <Route path='/welcome'/>
-            <img src="../../files/Y_Combinator_logo.png" alt = "Tu jest Logo"/>
+            <a className="YCombinator" href="/"/>
             <h4>Welcome to Hacker News</h4>
             <p>
                     Hacker News is a bit different from other community sites, and we'd appreciate it if you'd take a minute to read the following as well as the official guidelines.

@@ -3,7 +3,6 @@ import "./Login.scss"
 import { Route } from "react-router-dom";
 
 
-
 export default function Login() {
 
     return (
@@ -11,8 +10,8 @@ export default function Login() {
             <Route path='/login'/>
             <form>
                 <label htmlFor="login_Label">Login</label><br/><br/>
-                <label htmlFor="fusername">Username: </label>
-                <input type="text" /><br/>
+                <label htmlFor="femail">Email: </label>
+                <input type="email" /><br/>
                 <label htmlFor="fpassword">Password: </label>
                 <input type="password"  /><br/><br/>
                 <input type="submit" value="Login"/><br/><br/>
