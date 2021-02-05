@@ -1,23 +1,45 @@
-import React from "react";
-import "./Comment.scss";
-import useGet from "../../hooks/useGet";
-import useAddedAgo from "../../hooks/useAddedAgo";
+import React from 'react';
+import Item from "./Item";
 
-export default function AdminForms( ) {
-    const URI = `https://hacker-news.firebaseio.com/v0/item/${Id}.json?print=pretty`;
-    const news = useGet(URI, {});
-    //const added = useAddedAgo(comment.time);
+export default function AdminPanel() {
+    const adminPanelState = {
+        idInput: '',
+        idNumber: '',
+        visibleItem: false
+    }
+
+    function adminPanelReducer(state, action) {
+        switch(action.type) {
+            case 'GET_INPUT_VALUE':
+                return {
+                    ...state,
+                    idInput: action.payload
+                }
+            case 'ITEM_FORM':
+                return {
+                    ...state,
+                    idNumber: state.idInput,
+                    visibleItem: true
+                }
+            default:
+                throw new Error();
+        }
+    }
+
+    const [state, dispatch] = React.useReducer(adminPanelReducer, adminPanelState);
 
     return (
         <li>
             <form>
-                <label>Insert id od item which you want edit:</label>
-                <input type="text"/>
-            </form>
-            <form>
-                <input>{news.title}</input>
-                <textarea>{news.text}</textarea>
-                <input>{news.url}</input>
+                <label>
+                    <p>
+                        Insert id od item which you want edit:
+                    </p>
+                </label>
+                <input type="text" id="idNumber"
+                       onChange={event => dispatch({type: 'GET_INPUT_VALUE', payload: event.target.value})} />
+                <p onClick={() => dispatch({type: 'ITEM_FORM'})}>search</p>
+                <Item idNumber={state.idNumber} visibleItem={state.visibleItem} />
             </form>
         </li>
     );

@@ -15,6 +15,7 @@ import Jobs from "../components/Jobs/Jobs"
 
 import { Route } from "react-router-dom";
 import Discuss from "../components/Comments/Discuss";
+import AdminPanel from "../components/Admin/AdminPanel";
 
 export default function Content() {
     return (
@@ -31,6 +32,7 @@ export default function Content() {
             <Route path='/profile' component={Profile}/>
             <Route path='/discuss' component={Discuss}/>
             <Route path='/item' component={Discuss}/>
+            <Route path='/admin_panel' component={AdminPanel}/>
         </section>
     );
 }
