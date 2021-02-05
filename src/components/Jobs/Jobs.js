@@ -24,12 +24,12 @@ export default function Jobs() {
                 <div className='hide-button' onClick={() => setVisible(false)}>Hide</div>
                 <div className='add-button' onClick={() => setAddedJob(prev => [...prev, {jobType: input, url: inputURL}])}>Add</div>
             </form>
-            <ul>
+            <ol>
                 {addedJob.length > 0 && addedJob.map(added => (<li><a href={added.url}>{added.jobType}</a></li>))}
                 {jobs.map(jobId => (
                     <Job jobId={jobId}/>
                 ))}
-            </ul>
+            </ol>
         </article>
     );
 }
