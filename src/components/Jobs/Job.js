@@ -11,14 +11,18 @@ export default function Job({ jobId }) {
 
     const time = useAddedAgo(timeNotNull())
 
+
     return (
-        <li>
-            {job !== null &&
-            <>
-                <a href={job.url}>{job.title}</a>
-                <p>{time}</p>
-            </>
-            }
-        </li>
+        <div>
+            <li>
+                {job !== null &&
+                <>
+                    <a href={job.url}>{job.title}</a>
+                    <p>{time}</p>
+                </>
+                }
+            </li>
+        </div>
+
     );
 }

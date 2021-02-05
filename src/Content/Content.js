@@ -8,8 +8,8 @@ import Submit from "../components/Submit/Submit"
 import Welcome from "../components/Welcome/Welcome";
 import Past from "../components/Past/Past"
 import Comments from "../components/Comments/Comments"
-import Ask from "../components/Ask/Ask"
-import Show from "../components/Show/Show"
+import Asks from "../components/Ask/Asks"
+import Shows from "../components/Show/Shows"
 import Jobs from "../components/Jobs/Jobs"
 
 
@@ -23,13 +23,14 @@ export default function Content() {
             <Route path='/new' component={New}/>
             <Route path='/past' component={Past}/>
             <Route path='/comments' component={Comments}/>
-            <Route path='/ask' component={Ask}/>
-            <Route path='/show' component={Show}/>
+            <Route path='/ask' component={Asks}/>
+            <Route path='/show' component={Shows}/>
             <Route path='/jobs' component={Jobs}/>
             <Route path='/submit' component={Submit}/>
             <Route path='/login' component={Login}/>
             <Route path='/profile' component={Profile}/>
             <Route path='/discuss' component={Discuss}/>
+            <Route path='/item' component={Discuss}/>
         </section>
     );
 }

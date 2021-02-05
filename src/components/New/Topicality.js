@@ -2,6 +2,8 @@ import React from "react";
 import "./Topicality.scss";
 import useGet from "../../hooks/useGet";
 import useAddedAgo from "../../hooks/useAddedAgo";
+import Discuss from "../Comments/Discuss";
+import {Link} from "react-router-dom";
 
 export default function Topicality({ topicalityId }) {
     const URI = `https://hacker-news.firebaseio.com/v0/item/${topicalityId}.json?print=pretty`;
@@ -14,10 +16,10 @@ export default function Topicality({ topicalityId }) {
     const [hide, setHide] = React.useState(false);
     const [vote, setVote] = React.useState(false);
 
-    let score = topicality.score;
 
     return <>
         {!hide && <li className="list">
+            {topicality !== null &&
             <main className='post'>
                 <div className='arrow'
                      onClick={() => setVote(true)}
@@ -25,16 +27,16 @@ export default function Topicality({ topicalityId }) {
                 />
                 <div className="content">
                     <a href={topicality.url}>{topicality.title}</a>
-                    <p>{score} {score === 1 ? 'point' : 'points'} by {topicality.by} {time} |&nbsp;
+                    <p>{topicality.score} {topicality.score === 1 ? 'point' : 'points'} by {topicality.by} {time} |&nbsp;
                         <span
                             onClick={() => setVote(false)}
-                            style={{display: vote ? 'inline-block' : 'none'}} >unvote | </span>
+                            style={{display: vote ? 'inline-block' : 'none'}} > unvote | </span>
                         <span onClick={() => setHide(true)}>hide | </span>
                         <a href="">past | </a>
-                        <a href="/discuss">discuss</a>
+                        <Link to={`/item?id=${topicality.id}`}>discuss</Link>
                     </p>
                 </div>
-            </main>
+            </main>}
         </li>}
     </>;
 }
