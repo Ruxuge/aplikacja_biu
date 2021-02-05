@@ -1,13 +1,12 @@
 import React from 'react';
 import useGet from "../../../hooks/useGet";
 
-export default function Item({ idNumber, visibleItem }) {
+export default function CommentForm({ idNumber }) {
     const URI = `https://hacker-news.firebaseio.com/v0/item/${idNumber}.json?print=pretty`;
     const item = useGet(URI, {})
 
     return (
         <>
-            {visibleItem &&
             <form>
                 <p>Edit comment with id: {item.id}</p>
                 <label>
@@ -19,7 +18,7 @@ export default function Item({ idNumber, visibleItem }) {
                     <input value={item.text}/>
                 </label>
 
-            </form>}
+            </form>
         </>
     )
 }

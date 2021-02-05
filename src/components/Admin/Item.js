@@ -1,8 +1,8 @@
 import React from 'react';
 import useGet from "../../hooks/useGet";
-import storyForm from "./Forms/storyForm";
-import commentForm from "./Forms/commentForm";
-import jobForm from "./Forms/jobForm";
+import StoryForm from "./Forms/StoryForm";
+import CommentForm from "./Forms/CommentForm";
+import JobForm from "./Forms/JobForm";
 
 export default function Item({ idNumber, visibleItem }) {
     const URI = `https://hacker-news.firebaseio.com/v0/item/${idNumber}.json?print=pretty`;
@@ -13,14 +13,14 @@ export default function Item({ idNumber, visibleItem }) {
     return (
         <>
             {visibleItem &&
-            <form>
+            <article>
                 <p>{type}</p>
 
-                {type === "comment" && <commentForm/>}
-                {type === "story" && <storyForm/>}
-                {type === "job" && <jobForm/>}
+                {type === "comment" && <CommentForm idNumber={idNumber}/>}
+                {type === "story" && <StoryForm idNumber={idNumber}/>}
+                {type === "job" && <JobForm idNumber={idNumber} />}
 
-            </form>}
+            </article>}
         </>
     )
 }
