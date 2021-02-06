@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Past.scss"
 import useGet from "../../hooks/useGet";
 import Topicality from "../New/Topicality";
+import PastPost from "./PastPost";
 
 export default function Past() {
     const URI = 'https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty';
@@ -26,9 +27,15 @@ export default function Past() {
                 <p> {unixDate} </p>
             </div>
             <ul>
-                {news.map(topicalityId => (
-                    <Topicality topicalityId={topicalityId} />
-                ))}
+               {/* {news.map(topicalityId =>
+                    <PastPost topicalityId={topicalityId} unixDate={unixDate} date={date} />
+                        PastPost({props}) {
+                            return (
+                                <>{ postUnixDate < date &&
+                                    <Topicality topicalityId />
+                                }</>
+                            );
+                        }*/}
             </ul>
         </article>
     );

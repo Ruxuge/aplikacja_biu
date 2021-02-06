@@ -35,8 +35,9 @@ export default function New() {
             </form>
             <ol>
                     {addedNews.length > 0 && addedNews.map(added => (
-                        /*{!hide && */<li className="list">
-                            {/*{news !== null &&*/}
+                        <>
+                        {!hide && <li className="list">
+                            {news !== null &&
                             <main className='post'>
                                 <div className='arrow'
                                     onClick={() => setVote(true)}
@@ -53,8 +54,9 @@ export default function New() {
                                         <Link to={`/item?id=${id}`}>discuss</Link>
                                     </p>
                                 </div>
-                            </main>
-                        </li>))}
+                            </main>}
+                        </li>}
+                        </>))}
                     {news.map(topicalityId => (
                         <Topicality topicalityId={topicalityId} />
                     ))}
