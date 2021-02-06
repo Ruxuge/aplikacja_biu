@@ -11,7 +11,7 @@ export default function Item({ idNumber, visibleItem }) {
     const type = item.type;
 
     return (
-        <>
+        <div>
             {visibleItem &&
             <article>
                 <p>{type}</p>
@@ -21,6 +21,6 @@ export default function Item({ idNumber, visibleItem }) {
                 {type === "job" && <JobForm idNumber={idNumber} />}
 
             </article>}
-        </>
+        </div>
     )
 }
