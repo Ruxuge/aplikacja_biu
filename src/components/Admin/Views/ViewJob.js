@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function View({ idNumber, visibleItem, by, text, title }) {
+export default function ViewJob({ idNumber, visibleItem, by, text, title }) {
     return (
         <div>
             {visibleItem &&
