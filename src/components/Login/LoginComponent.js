@@ -1,21 +1,44 @@
-import React, {useState} from 'react'
+import React from 'react'
 import "./Login.scss"
 import { Route } from "react-router-dom";
-import {ChangeEvent} from "react";
 import {login} from "../../Authorization/CreateAuthProvider";
 
 
 
-export default function Login() {
+export default function LoginComponent() {
 
-    const [credentials, setCredentials] = useState({
-        name: " ",
-        password: " "
-    });
+    const loginComponentState = {
+        nameInput: '',
+        name: '',
+        passwordInput: '',
+        password: ''
+    }
 
-    const onChange = ({target: {name, value}}: ChangeEvent<HTMLInputElement>) => {
-        setCredentials({...credentials, [name]: value})
-    };
+    function loginComponentReducer(state, action) {
+        switch(action.type) {
+            case 'GET_NAME':
+                return {
+                    ...state,
+                    nameInput: action.payload
+                }
+            case 'GET_PASSWORD':
+                return {
+                    ...state,
+                    passwordInput: action.payload
+                }
+            case 'ITEM_FORM':
+                return {
+                    ...state,
+                    name: state.nameInput,
+                    password: state.passwordInput
+                }
+            default:
+                throw new Error();
+        }
+    }
+
+    const [state, dispatch] = React.useReducer(loginComponentReducer, loginComponentState);
+
 
     const onSubmit = (event?: React.FormEvent) => {
         if (event) {
@@ -24,13 +47,12 @@ export default function Login() {
 
         fetch('/login', {
             method: 'POST',
-            body: JSON.stringify(credentials)
+            body: JSON.stringify(state)
         })
             .then(r => r.json())
             .then(token => login(token))
     };
 
-    console.log(credentials)
 
     return (
         <section className='login'>
@@ -38,21 +60,22 @@ export default function Login() {
             <form onSubmit={onSubmit}>
                 <label htmlFor="login_Label">Login</label><br/><br/>
                 <label htmlFor="login">Login: </label>
-                <input type="text" name="name" value={credentials.name} onChange={onChange} /><br/>
+                <input type="text" name="name" onChange={event => dispatch({type: 'GET_NAME', payload: event.target.value})} /><br/>
                 <label htmlFor="fpassword">Password: </label>
-                <input type="password" name="password" value={credentials.password} onChange={onChange} /><br/><br/>
-                <input type="submit" value="Login"/><br/><br/>
+                <input type="password" name="password" onChange={event => dispatch({type: 'GET_PASSWORD', payload: event.target.value})}/><br/><br/>
+                <p onClick={() => dispatch({type: 'ITEM_FORM'})}>login</p>
+                <input type="submit" value="Login" /><br/><br/>
                 <a href="">Forgot your password?</a><br/><br/>
             </form>
 
-            {/*<form>
+            <form>
                 <label htmlFor="create_account_label">Create account</label><br/><br/>
                 <label htmlFor="fusername">Username: </label>
                 <input type="text" /><br/>
                 <label htmlFor="fpassword">Password: </label>
                 <input type="password" /><br/><br/>
                 <input type="submit" value="Create account"/>
-            </form>*/}
+            </form>
         </section>
     );
 }

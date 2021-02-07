@@ -1,9 +1,6 @@
 import {useEffect, useState} from "react";
 import {CreateTokenProvider} from "./CreateTokenProvider";
 
-
-
-
 export const CreateAuthProvider = () => {
 
     const tokenProvider = CreateTokenProvider();
@@ -16,7 +13,7 @@ export const CreateAuthProvider = () => {
         tokenProvider.setToken(null);
     };
 
-    const authFetch = async (input: RequestInfo, init?: RequestInit): Promise<Response> => {
+    const authFetch = async (input, init?): Promise<Response> => {
         const token = await tokenProvider.getToken();
 
         init = init || {};
@@ -43,7 +40,7 @@ export const CreateAuthProvider = () => {
             };
         }, []);
 
-        return [isLogged] [typeof isLogged];
+        return [isLogged];
     };
 
     return {
