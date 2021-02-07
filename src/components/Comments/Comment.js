@@ -9,7 +9,6 @@ export default function Comment({ comment }) {
     //const added = useAddedAgo(comment.time);
 
     return (
-
         <li>
             <p>{comment.text}</p>
         </li>

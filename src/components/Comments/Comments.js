@@ -5,8 +5,7 @@ import axios from "axios";
 
 export default function Comments() {
 
-
-    let item = 26000000;
+    let item = 2600
     const stateType = [];
 
     const [comments, setComments] = useState([]);
@@ -28,7 +27,6 @@ export default function Comments() {
 
     return (
         <article>
-
             <ul>
                 {comments.map(commentId => (
                     <Comment commentId={commentId} />

@@ -58,14 +58,14 @@ export default function Topicality({topicalityId}) {
                              onClick={() => dispatch({type: 'VOTE'})}
                              style={{opacity: state.vote ? 0 : 1}}/>
                         <div className="content">
-                            <a href={topicality.url}>{topicality.title}</a>
+                            <a href={topicality.url}>{topicality.title}</a> <a className="link">({topicality.url})</a>
                             <p ref={scoreRef}>{state.score === null ? topicality.score : state.score} {(topicality.score === 1) ? 'point' : 'points'} by {topicality.by} {time} |&nbsp;
                                 <span
                                     onClick={(() => dispatch({type: 'UNVOTE'}))}
                                     style={{display: state.vote ? 'inline-block' : 'none'}}>unvote | </span>
                                 <span onClick={() => dispatch({type: 'HIDE'})}>hide | </span>
                                 <a href="">past | </a>
-                                <Link to={`/item?id=${topicality.id}`}>discuss</Link>
+                                <Link to={`discuss?id=${topicality.id}`}>discuss</Link>
                             </p>
                         </div>
                     </main>
