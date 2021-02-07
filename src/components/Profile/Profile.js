@@ -1,11 +1,28 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import "./Profile.scss"
 import { Route } from "react-router-dom";
+import {authFetch} from "../../Authorization/CreateAuthProvider";
 
 export default function Profile() {
+
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        authFetch('/posts')
+            .then(r => r.json())
+            .then(_posts => setPosts(_posts))
+    }, []);
+
+
+
     return (
         <section className='profile'>
             <Route path='/profile'/>
+            <>
+                {posts.map(post => <div key={post.id}>
+                    {post.message}
+                </div>)}
+            </>
             <form>
                 <label htmlFor="fabout">About: </label>
                 <input type="text" id="fabout" name="fabout"/><br/>

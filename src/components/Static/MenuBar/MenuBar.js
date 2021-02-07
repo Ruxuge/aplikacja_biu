@@ -18,6 +18,7 @@ export default function MenuBar() {
                 <Link to='/submit'>submit</Link>
             </aside>
             <aside className='menu-login'>
+                <Link to='/admin_panel'>admin panel | </Link>
                 <Link to='/login'>login local | </Link>
                 <a href="https://news.ycombinator.com/login"> login</a>
             </aside>
