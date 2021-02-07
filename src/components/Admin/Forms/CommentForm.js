@@ -1,12 +1,11 @@
 import React from 'react';
 import useGet from "../../../hooks/useGet";
-import View from "../Views/ViewJob";
 import ViewComment from "../Views/ViewComment";
-
+import {commentFormReducer, commentFormState} from "../../../Reducers/ReducerCommentForm";
 export default function CommentForm({ idNumber }) {
+
     const URI = `https://hacker-news.firebaseio.com/v0/item/${idNumber}.json?print=pretty`;
     const item = useGet(URI, {})
-
 
     const commentFormState = {
         idInput: item.id,
@@ -16,30 +15,6 @@ export default function CommentForm({ idNumber }) {
         textInput: item.text,
         text: item.text,
         visibleItem: false
-    }
-
-    function commentFormReducer(state, action) {
-        switch(action.type) {
-            case 'GET_ID':
-                return {
-                    ...state,
-                    idInput: action.payload
-                }
-            case 'GET_TEXT':
-                return {
-                    ...state,
-                    textInput: action.payload
-                }
-            case 'ITEM_FORM':
-                return {
-                    ...state,
-                    by: state.idInput,
-                    text: state.textInput,
-                    visibleItem: true
-                }
-            default:
-                throw new Error();
-        }
     }
 
     const [state, dispatch] = React.useReducer(commentFormReducer, commentFormState);

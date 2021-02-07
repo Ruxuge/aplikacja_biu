@@ -1,32 +1,19 @@
 import React from 'react';
 import Item from "./Item";
+import {adminPanelReducer, adminPanelState, adminPanelState as state} from "../../Reducers/ReducerAdminPanel"
 
 export default function AdminPanel() {
+
     const adminPanelState = {
         idInput: '',
         idNumber: '',
         visibleItem: false
     }
 
-    function adminPanelReducer(state, action) {
-        switch(action.type) {
-            case 'GET_INPUT_VALUE':
-                return {
-                    ...state,
-                    idInput: action.payload
-                }
-            case 'ITEM_FORM':
-                return {
-                    ...state,
-                    idNumber: state.idInput,
-                    visibleItem: true
-                }
-            default:
-                throw new Error();
-        }
-    }
-
     const [state, dispatch] = React.useReducer(adminPanelReducer, adminPanelState);
+
+
+
 
     return (
         <li>
