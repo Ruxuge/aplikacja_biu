@@ -9,8 +9,8 @@ import {login} from "../../Authorization/CreateAuthProvider";
 export default function Login() {
 
     const [credentials, setCredentials] = useState({
-        login: '',
-        password: ''
+        name: " ",
+        password: " "
     });
 
     const onChange = ({target: {name, value}}: ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +30,7 @@ export default function Login() {
             .then(token => login(token))
     };
 
+    console.log(credentials)
 
     return (
         <section className='login'>
@@ -37,21 +38,21 @@ export default function Login() {
             <form onSubmit={onSubmit}>
                 <label htmlFor="login_Label">Login</label><br/><br/>
                 <label htmlFor="login">Login: </label>
-                <input type="text" name="login" value={credentials.login} onChange={onChange} /><br/>
+                <input type="text" name="name" value={credentials.name} onChange={onChange} /><br/>
                 <label htmlFor="fpassword">Password: </label>
                 <input type="password" name="password" value={credentials.password} onChange={onChange} /><br/><br/>
                 <input type="submit" value="Login"/><br/><br/>
                 <a href="">Forgot your password?</a><br/><br/>
             </form>
 
-            <form>
+            {/*<form>
                 <label htmlFor="create_account_label">Create account</label><br/><br/>
                 <label htmlFor="fusername">Username: </label>
                 <input type="text" /><br/>
                 <label htmlFor="fpassword">Password: </label>
                 <input type="password" /><br/><br/>
                 <input type="submit" value="Create account"/>
-            </form>
+            </form>*/}
         </section>
     );
 }

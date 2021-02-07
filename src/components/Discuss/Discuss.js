@@ -31,6 +31,10 @@ export default function Discuss() {
                 <textarea name="text" rows="6" cols="60"/><br/><br/>
                 <input type="submit" value="add comment"/>
             </form>
+            <section>
+
+
+            </section>
         </section>
 
     );
