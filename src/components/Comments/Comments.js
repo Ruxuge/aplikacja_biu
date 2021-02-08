@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react'
+/*
+import React, { useState } from 'react'
 import "./Comments.scss"
 import Comment from "./Comment";
 import axios from "axios";
@@ -34,4 +35,4 @@ export default function Comments() {
             </ul>
         </article>
     );
-}
+}*/
