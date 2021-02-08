@@ -1,4 +1,3 @@
-/*
 import React, { useState } from 'react'
 import "./Comments.scss"
 import Comment from "./Comment";
@@ -35,4 +34,4 @@ export default function Comments() {
             </ul>
         </article>
     );
-}*/
+}
